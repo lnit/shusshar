@@ -5,6 +5,27 @@ class Api::V1::ClarinetsController < ApplicationController
     @clarinet&.quit
   end
 
+  def shussha
+    clarinet.shussha!
+    render head: :ok
+  ensure
+    @clarinet&.quit
+  end
+
+  def taisha
+    clarinet.taisha!
+    render head: :ok
+  ensure
+    @clarinet&.quit
+  end
+
+  def dakoku
+    clarinet.dakoku!
+    render head: :ok
+  ensure
+    @clarinet&.quit
+  end
+
   private
   def clarinet
     return @clarinet if @clarinet
