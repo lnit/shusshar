@@ -19,8 +19,8 @@ class ClarinetDriver
   # @param [String] login_id ネットde勤怠のID
   # @param [String] login_pass ネットde勤怠のパスワード
   # @return [ClarinetDriver] 生成されたClarinetDriverのインスタンス
-  def initialize(browser, login_id, login_pass)
-    d = Selenium::WebDriver.for browser
+  def initialize(browser, login_id, login_pass, opt = {})
+    d = Selenium::WebDriver.for browser, opt # url: "http://133.242.231.79:4444/wd/hub", desired_capabilities: :chrome
 
     d.navigate.to(LOGIN_URL)
     d.find_element(:id, "txtID").send_keys(login_id)
