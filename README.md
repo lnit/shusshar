@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 自動打刻アプリ
 
-Things you may want to cover:
+# Usage
 
-* Ruby version
+```
+curl -X GET  -H 'Content-Type:application/json' -d '{"login_id" : "#{YOUR_ID}", "login_pass" : "#{YOUR_PASS}"}' http://localhost:3000/api/v1/clarinet/status
+curl -X POST  -H 'Content-Type:application/json' -d '{"login_id" : "#{YOUR_ID}", "login_pass" : "#{YOUR_PASS}"}' http://localhost:3000/api/v1/clarinet/dakoku
+curl -X POST  -H 'Content-Type:application/json' -d '{"login_id" : "#{YOUR_ID}", "login_pass" : "#{YOUR_PASS}"}' http://localhost:3000/api/v1/clarinet/shussha
+curl -X POST  -H 'Content-Type:application/json' -d '{"login_id" : "#{YOUR_ID}", "login_pass" : "#{YOUR_PASS}"}' http://localhost:3000/api/v1/clarinet/taisha
+```
 
-* System dependencies
+# Getting started
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* TBD
