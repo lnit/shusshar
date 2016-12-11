@@ -47,9 +47,17 @@ class ClarinetDriver
   end
 
   def work_status
-    return WorkStatus::STANDBY if shusshable?
-    return WorkStatus::WORKING if taishable?
-    return WorkStatus::FINISHED
+    hash = {}
+
+    if shusshable?
+      hash[:status] = WorkStatus::STANDBY
+    elsif taishable?
+      hash[:status] = WorkStatus::WORKING
+    else
+      hash[:status] = WorkStatus::FINISHED
+    end
+
+    hash
   end
 
   def shussha!
