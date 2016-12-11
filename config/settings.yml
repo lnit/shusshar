@@ -1,0 +1,6 @@
+clarinet_driver:
+  browser: :remote
+  opts_enabled: true # optsを空ハッシュやnilで上書きできないのでフラグ管理する https://github.com/railsconfig/config/issues/13
+  opts:
+    url: "http://133.242.231.79:4444/wd/hub"
+    desired_capabilities: :chrome

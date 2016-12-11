@@ -8,7 +8,14 @@ class Api::V1::ClarinetsController < ApplicationController
   private
   def clarinet
     return @clarinet if @clarinet
-    @clarinet = ClarinetDriver.new(:firefox, auth[:login_id], auth[:login_pass])
+    browser = Settings.clarinet_driver.browser || :firefox
+    if Settings.clarinet_driver.opts_enabled
+      opts = Settings.clarinet_driver.opts&.to_hash || {}
+    else
+      opts = {}
+    end
+
+    @clarinet = ClarinetDriver.new(browser, auth[:login_id], auth[:login_pass], opts)
   end
 
   def auth

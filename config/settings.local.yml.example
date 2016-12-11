@@ -1,0 +1,3 @@
+clarinet_driver:
+  browser: :firefox
+  opts_enabled: false
