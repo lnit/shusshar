@@ -13,4 +13,7 @@ curl -X POST  -H 'Content-Type:application/json' -d '{"login_id" : "#{YOUR_ID}",
 
 # Getting started
 
-* TBD
+```
+$ docker build -t lnit/shusshar:latest https://github.com/lnit/shusshar.git
+$ docker run -itd -p 3000:3000 lnit/shusshar:latest
+```
