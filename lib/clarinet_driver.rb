@@ -65,6 +65,7 @@ class ClarinetDriver
       raise UnshusshableError, "Your status is '#{work_status}'."
     end
     control_buttons[0].click
+    sleep 1.5 # 操作が終わるまでちょっと待つ
   end
 
   def taisha!
@@ -72,6 +73,7 @@ class ClarinetDriver
       raise UntaishableError, "Your status is '#{work_status}'."
     end
     control_buttons[3].click
+    sleep 1.5 # 操作が終わるまでちょっと待つ
   end
 
   # 勤務状態を取得して出社/退社を行う
