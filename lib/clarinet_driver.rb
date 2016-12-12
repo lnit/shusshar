@@ -93,6 +93,6 @@ class ClarinetDriver
 
   def control_buttons
     driver.navigate.to(MAIN_URL) unless driver.current_url == MAIN_URL # 違うページを表示している場合はメインページに戻ってくる
-    driver.find_elements(:xpath, "//div[@id='ctl00_ContentPlaceHolder1_pnlInMode']/*")
+    driver.find_elements(:xpath, "//div[@class='timeBtns']/div[@class='timeBtnL']/div/*")
   end
 end
