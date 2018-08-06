@@ -5,7 +5,6 @@ class ClarinetDriver
   class UnauthorizedError < StandardError; end
   class UnshusshableError < StandardError; end
   class UntaishableError < StandardError; end
-  class UndakokableError < StandardError; end
 
   module WorkStatus
     STANDBY = "standby"
@@ -77,10 +76,10 @@ class ClarinetDriver
   end
 
   # 勤務状態を取得して出社/退社を行う
-  def dakoku!
+  def punch!
     return shussha! if shusshable?
     return taisha! if taishable?
-    raise UndakokableError, "Your status is '#{work_status}'."
+    raise UnshusshableError, "Your status is '#{work_status}'."
   end
 
   def shusshable?

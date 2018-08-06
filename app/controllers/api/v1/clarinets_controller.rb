@@ -19,8 +19,8 @@ class Api::V1::ClarinetsController < ApplicationController
     @clarinet&.quit
   end
 
-  def dakoku
-    clarinet.dakoku!
+  def punch
+    clarinet.punch!
     render head: :ok
   ensure
     @clarinet&.quit
