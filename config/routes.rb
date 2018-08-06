@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       scope "/clarinet" do
-        get "status", to: "clarinets#status"
-        post "dakoku", to: "clarinets#dakoku"
+        post "status", to: "clarinets#status"
+        post "punch", to: "clarinets#punch"
         post "shussha", to: "clarinets#shussha"
         post "taisha", to: "clarinets#taisha"
       end

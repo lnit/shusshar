@@ -1,0 +1,137 @@
+swagger: "2.0"
+info:
+  description: "勤怠システム操作用API"
+  version: "1.0.0"
+  title: "Shusshar"
+  # termsOfService: "http://swagger.io/terms/"
+  # contact:
+  #   email: "apiteam@swagger.io"
+  # license:
+  #   name: "Apache 2.0"
+  #   url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3000"
+basePath: "/api/v1"
+tags:
+- name: "clarinet"
+  description: "ネットde勤怠の操作"
+# - name: "pet"
+#   description: "Everything about your Pets"
+#   externalDocs:
+#     description: "Find out more"
+#     url: "http://swagger.io"
+# - name: "store"
+#   description: "Access to Petstore orders"
+# - name: "user"
+#   description: "Operations about user"
+#   externalDocs:
+#     description: "Find out more about our store"
+#     url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /clarinet/status:
+    post:
+      tags:
+      - "clarinet"
+      summary: "自身の出退勤状態確認"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Auth"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+  /clarinet/punch:
+    post:
+      summary: "打刻する"
+      description:
+        "出退勤状態に応じて自動で出勤/退勤を行う。<br/>2回実行すると出勤後に即座に退勤処理が行われるため要注意"
+      tags:
+      - "clarinet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Auth"
+      responses:
+        200:
+          description: "OK"
+        401:
+          description: "Unauthorized"
+        400:
+          description: "Bad Request"
+  /clarinet/shussha:
+    post:
+      summary: "出社する"
+      tags:
+      - "clarinet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Auth"
+      responses:
+        200:
+          description: "OK"
+        401:
+          description: "Unauthorized"
+        400:
+          description: "Bad Request"
+  /clarinet/taisha:
+    post:
+      summary: "退社する"
+      tags:
+      - "clarinet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Auth"
+      responses:
+        200:
+          description: "OK"
+        401:
+          description: "Unauthorized"
+        400:
+          description: "Bad Request"
+definitions:
+  Auth:
+    type: object
+    properties:
+      login_id:
+        type: string
+      login_pass:
+        type: string
+# externalDocs:
+#   description: "Find out more about Swagger"
+#   url: "http://swagger.io"
