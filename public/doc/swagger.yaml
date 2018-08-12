@@ -41,7 +41,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: ""
+        description: "ネットde勤怠のログインID/PWをパラメータとする"
         required: true
         schema:
           $ref: "#/definitions/Auth"
@@ -62,7 +62,7 @@ paths:
     post:
       summary: "打刻する"
       description:
-        "出退勤状態に応じて自動で出勤/退勤を行う。<br/>2回実行すると出勤後に即座に退勤処理が行われるため要注意"
+        "出退勤状態に応じて自動で出勤/退勤を行う<br/>2回続けて実行すると出勤後に即座に退勤処理が行われるため要注意"
       tags:
       - "clarinet"
       consumes:
@@ -72,7 +72,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: ""
+        description: "ネットde勤怠のログインID/PWをパラメータとする"
         required: true
         schema:
           $ref: "#/definitions/Auth"
@@ -90,6 +90,7 @@ paths:
   /clarinet/shussha:
     post:
       summary: "出社する"
+      description: "出社できる場合に出社を行う<br/>2回続けて実行した場合エラーとなる"
       tags:
       - "clarinet"
       consumes:
@@ -99,7 +100,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: ""
+        description: "ネットde勤怠のログインID/PWをパラメータとする"
         required: true
         schema:
           $ref: "#/definitions/Auth"
@@ -117,6 +118,7 @@ paths:
   /clarinet/taisha:
     post:
       summary: "退社する"
+      description: "退社できる場合に退社を行う<br/>2回続けて実行した場合エラーとなる"
       tags:
       - "clarinet"
       consumes:
@@ -126,7 +128,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: ""
+        description: "ネットde勤怠のログインID/PWをパラメータとする"
         required: true
         schema:
           $ref: "#/definitions/Auth"
@@ -146,8 +148,10 @@ definitions:
     type: object
     properties:
       login_id:
+        description: "ネットde勤怠ID"
         type: string
       login_pass:
+        description: "ネットde勤怠PW"
         type: string
   ErrorResponse:
     type: "object"
