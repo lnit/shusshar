@@ -2,9 +2,23 @@ class ClarinetDriver
   LOGIN_URL = "https://www1.shalom-house.jp/komon/login.aspx"
   MAIN_URL = "https://www1.shalom-house.jp/cla_jnj/top.aspx"
 
-  class UnauthorizedError < StandardError; end
-  class UnshusshableError < StandardError; end
-  class UntaishableError < StandardError; end
+  class ShussharError < StandardError
+    def response_hash
+      {
+        code: code,
+        type: self.class.name,
+        message: self.message,
+      }
+    end
+  end
+  class UnauthorizedError < ShussharError
+    def code; 401 end
+  end
+  class BadRequestError < ShussharError
+    def code; 400 end
+  end
+  class UnshusshableError < BadRequestError; end
+  class UntaishableError < BadRequestError; end
 
   module WorkStatus
     STANDBY = "standby"

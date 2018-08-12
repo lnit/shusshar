@@ -1,4 +1,8 @@
 class Api::V1::ClarinetsController < ApplicationController
+  rescue_from ClarinetDriver::ShussharError do |e|
+    render status: e.code, json: e.response_hash
+  end
+
   def status
     render json: clarinet.work_status
   ensure
