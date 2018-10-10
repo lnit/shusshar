@@ -22,6 +22,11 @@ gem 'puma', '~> 3.0'
 gem 'selenium-webdriver'
 gem 'config'
 
+gem 'prawn', '2.1.0'
+gem 'asciidoctor'
+gem 'asciidoctor-pdf'
+gem 'asciidoctor-pdf-cjk'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
